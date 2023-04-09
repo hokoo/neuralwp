@@ -1,0 +1,48 @@
+{
+  "name": "hokoo/neuralwp",
+  "description": "",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Igor Tron",
+      "email": "public@itron.pro"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
+  "require": {
+    "johnpbloch/wordpress-core-installer":"*",
+    "composer/installers":"*",
+    "johnpbloch/wordpress":"6.0",
+    "wpackagist-plugin/classic-editor":"^1.6.3",
+    "johnbillion/query-monitor":"^3.12.1",
+    "wpackagist-plugin/wp-data-logger":"^2.0",
+    "wpackagist-plugin/wordpress-seo":"20.4",
+    "wpackagist-plugin/seo-by-rank-math":"1.0.110.2",
+    "wpackagist-plugin/all-in-one-seo-pack":"4.3.4.1",
+    "wpackagist-plugin/woocommerce":"7.5.1"
+  },
+  "autoload": {
+  },
+  "extra": {
+    "installer-paths": {
+      "wordpress/wp-content/plugins/{$name}": [
+        "type:wordpress-plugin"
+      ]
+    }
+  },
+  "scripts": {
+    "pre-install-cmd": [],
+    "post-install-cmd": []
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true,
+      "johnpbloch/wordpress-core-installer": true
+    }
+  }
+}
