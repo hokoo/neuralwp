@@ -1,0 +1,3 @@
+[submodule "neuralseo"]
+	path = neuralseo
+	url = git@github.com:hokoo/neuralseo.git
