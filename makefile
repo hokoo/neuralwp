@@ -18,3 +18,6 @@ php.connect:
 
 php.connect.root:
 	docker-compose -p neuralwp exec --user=root php bash
+
+tests.run:
+	docker-compose -p neuralwp exec php bash -c "cd ./neuralseo && composer phpunit"
