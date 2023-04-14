@@ -33,6 +33,10 @@ services:
       - ./:/var/www/html
     networks:
       - neuralwp-network
+    extra_hosts:
+      - "${PROJECT_BASE_URL}:host-gateway"
+      - "videoservice.local:host-gateway"
+      - "host.docker.internal:host-gateway"
 
   nginx:
     container_name: "${PROJECT_NAME}_nginx"
