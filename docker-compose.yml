@@ -55,6 +55,27 @@ services:
     networks:
       - neuralwp-network
 
+  tests:
+    build:
+      context: install/tests
+      args:
+        EXT_USER_ID: $EXT_USER_ID
+    environment:
+      DB_HOST: $DB_HOST
+      DB_ROOT_USER: $DB_ROOT_USER
+      DB_ROOT_PASSWORD: $DB_ROOT_PASSWORD
+      DB_TESTS_NAME: $DB_TESTS_NAME
+      EXT_USER_ID: $EXT_USER_ID
+    container_name: "${PROJECT_NAME}_tests"
+    tty: true
+    working_dir: /var/www/html/
+    volumes:
+      - ./:/var/www/html/
+    links:
+      - mysql
+    networks:
+      - neuralwp-network
+
 networks:
   neuralwp-network:
     driver: bridge

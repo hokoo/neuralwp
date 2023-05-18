@@ -19,5 +19,16 @@ php.connect:
 php.connect.root:
 	docker-compose -p neuralwp exec --user=root php bash
 
+# Tests
+
+# tests.prepare [mysqluser] [mysqlpass] [mysqlhost]
+tests.prepare:
+	. ./.env && \
+	docker-compose -p neuralwp exec tests bash -c \
+	"cd ./neuralseo && bash tests/bin/install-wp-tests.sh $$DB_TESTS_NAME $$DB_ROOT_USER $$DB_ROOT_PASSWORD $$DB_HOST"
+
 tests.run:
-	docker-compose -p neuralwp exec php bash -c "cd ./neuralseo && composer phpunit"
+	docker-compose -p neuralwp exec tests bash -c "cd ./neuralseo && vendor/bin/phpunit -c phpunit.xml.dist"
+
+tests.connect:
+	docker-compose -p neuralwp exec tests bash

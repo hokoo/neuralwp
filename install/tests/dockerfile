@@ -1,0 +1,9 @@
+FROM wodby/php:7.4
+LABEL authors="iTRON"
+
+USER root
+
+RUN echo 'alias ll="ls -l --color"' >>  /etc/bash.bashrc
+RUN echo 'alias ll="ls -l --color"' >>  /home/wodby/.bashrc
+
+USER wodby
